@@ -32,6 +32,8 @@ def encrypt():
                 passwordIndex = 0
     output.config(text= final)
     print(final)
+    window.clipboard_clear()
+    window.clipboard_append(final)
     final = final + '(copied to clipboard)'
     return final
 
@@ -46,7 +48,7 @@ def Decrypt():
     if encryptOrDecrypt == 'decrypt' or encryptOrDecrypt == 'd':
         for i in range(lenthin):
             changer = int(charlist.index(truepass[passwordIndex]))
-            changed = int(charlist.index(textIn[inputIndex])) - changer
+            changed = changer - int(charlist.index(textIn[inputIndex]))
             if changed < 0:
                 changed = changed + listlen - 1
             final = final + charlist[changed]
@@ -56,6 +58,8 @@ def Decrypt():
                 passwordIndex = 0
     output.config(text= final)
     print(final)
+    window.clipboard_clear()
+    window.clipboard_append(final)
     final = final + '(copied to clipboard)'
     return final
 
